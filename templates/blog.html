@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Welcome {{ user_name }}!</h1>
+    <br>
+    <a href="{% url 'newpost' %}">Create a New Blog Post</a>
+    <br>
+    <a href="{% url 'myposts' %}">My Posts</a>
+    <br><br>
+    {% for b in blogs %}
+        <span>{{ b.subject }} by {{ b.user.name }}</span> <span>{{ b.date }}</span>
+        <hr>
+        <pre>{{ b.content }}</pre>
+    {% endfor %}
+{% endblock %}

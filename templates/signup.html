@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Signup</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Username</th>
+                <th><input type="text" name="username" value="{{ username }}"> </th>
+                <th style="color: red;">{{ username_msg }}</th>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <th><input type="password" name="password""> </th>
+                <th style="color: red;">{{ password_msg }}</th>
+            </tr>
+            <tr>
+                <th>Verify Password</th>
+                <th><input type="password" name="verify""> </th>
+                <th style="color: red;">{{ verify_msg }}</th>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <th><input type="text" name="email" value="{{ email }}"> </th>
+                <th style="color: red;">{{ email_msg }}</th>
+            </tr>
+        </table>
+        <input type="submit">
+        <a href="{% url 'signin' %}">Already signed up?</a>
+    </form>
+{% endblock %}

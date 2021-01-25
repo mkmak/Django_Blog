@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Login</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" name="username" value="{{ username }}"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+        </table>
+        <div style="color: red;">{{ error_msg }}</div>
+        <input type="submit">
+        <a href="{% url 'signup' %}">Don't have an account yer?</a>
+    </form>
+{% endblock %}
